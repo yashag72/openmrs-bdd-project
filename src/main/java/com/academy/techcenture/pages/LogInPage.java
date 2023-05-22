@@ -3,6 +3,7 @@ package com.academy.techcenture.pages;
 import org.jsoup.Connection;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
@@ -12,39 +13,56 @@ public class LogInPage extends BasePage{
 
     }
 
+    @FindBy(id = "username")
+    protected WebElement usernameInput;
+    @FindBy(id = "password")
+    protected WebElement passwordInput;
+    @FindBy(id = "Inpatient Ward")
+    protected WebElement inpatientWardLocation;
+    @FindBy(id = "Outpatient Clinic")
+    protected WebElement outpationClinicLocation;
+    @FindBy(id = "Isolation Ward")
+    protected WebElement isolationWardLocation;
+    @FindBy(id = "Pharmacy")
+    protected WebElement pharmacyLocation;
+    @FindBy(id = "Laboratory")
+    protected WebElement laboratoryLocation;
+    @FindBy(id = "Registration Desk")
+    protected WebElement registrationDeskLocation;
+    @FindBy(id = "loginButton")
+    protected WebElement loginButton;
+
+    @FindBy(id = "cantLogin")
+    protected WebElement cantLoginMsg;
+
     public void verifyTitle(){
         wait.until(ExpectedConditions.titleIs("Login"));
         Assert.assertTrue(driver.getTitle().equals("Login"));
     }
-
-
-    public void user_is_on_login_page() {
-
+    public void verifyAllWebElements(){
+        Assert.assertTrue(inpatientWardLocation.isEnabled());
+        Assert.assertTrue(outpationClinicLocation.isEnabled());
+        Assert.assertTrue(isolationWardLocation.isEnabled());
+        Assert.assertTrue(pharmacyLocation.isEnabled());
+        Assert.assertTrue(laboratoryLocation.isEnabled());
+        Assert.assertTrue(registrationDeskLocation.isEnabled());
+        Assert.assertTrue(loginButton.isEnabled());
+        Assert.assertTrue(cantLoginMsg.isDisplayed());
+    }
+    public void enterUserName(String username){
+        usernameInput.sendKeys(username);
+    }
+    public void enterPassword(String password){
+        passwordInput.sendKeys(password);
+    }
+    public void selectPharmacy(){
+        pharmacyLocation.click();
+    }
+    public void loginBtnClick(){
+        loginButton.click();
     }
 
-    public void user_clicks_on_sign_in_link() {
 
-    }
-
-    public void user_enters_a_valid_username(String string) {
-
-    }
-
-    public void user_enters_a_valid_password(String string) {
-
-    }
-
-    public void user_selects_location() {
-
-    }
-
-    public void user_clicks_on_the_log_in_button() {
-
-    }
-
-    public void user_should_be_logged_in_successfully() {
-
-    }
 
 
 
