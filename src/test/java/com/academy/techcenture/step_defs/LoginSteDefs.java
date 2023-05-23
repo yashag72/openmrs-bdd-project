@@ -51,5 +51,7 @@ public class LoginSteDefs {
     public void user_should_be_logged_in_successfully() {
         homePage = new HomePage(driver);
         homePage.verifyTitle();
+        homePage.verifyLoggedUsername();
+        homePage.verifyTopOptions();
     }
 }
