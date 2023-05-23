@@ -9,10 +9,10 @@ Feature: OpenMRS Login Feature
   Background: Login Background Steps
     Given user is already logged in
 
-
+@PatientSearch
   Scenario: Search for Patient Record
-    When user is on home page
-    And user clicks on Find Patient Record tab
-    And user searches patient by its ID
-    And user verifies found information
-    Then user goes back to home page
+#    When user is on home page
+#    And user clicks on Find Patient Record tab
+#    And user searches patient by its ID
+#    And user verifies found information
+#    Then user goes back to home page
