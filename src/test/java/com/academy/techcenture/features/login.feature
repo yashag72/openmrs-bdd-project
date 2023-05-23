@@ -14,7 +14,7 @@ Feature: OpenMRS Login Feature
     And user should be logged in successfully
     Then user should verify all of the items on home page
 
-  @regression
+
   Scenario: Invalid credentials
     When user enters a valid username "admin"
     And user enters a valid password "admin123"
