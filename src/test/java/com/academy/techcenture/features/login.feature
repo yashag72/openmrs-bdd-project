@@ -11,7 +11,8 @@ Feature: OpenMRS Login Feature
     And user enters a valid password "Admin123"
     And user selects location
     And user clicks on the log in button
-    Then user should be logged in successfully
+    And user should be logged in successfully
+    Then user should verify all of the items on home page
 
   @regression
   Scenario: Invalid credentials

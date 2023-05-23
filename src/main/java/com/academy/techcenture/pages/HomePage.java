@@ -32,7 +32,17 @@ public class HomePage extends BasePage{
     @FindBy(id = "coreapps-systemadministration-homepageLink-coreapps-systemadministration-homepageLink-extension")
     protected WebElement systemAdministration;
 
-
+    public void verifyFunctionalities(){
+        Assert.assertTrue(findPatientRecord.isDisplayed());
+        Assert.assertTrue(activeVisits.isDisplayed());
+        Assert.assertTrue(captureVitals.isDisplayed());
+        Assert.assertTrue(registerAPatient.isDisplayed());
+        Assert.assertTrue(appointmentScheduler.isDisplayed());
+        Assert.assertTrue(reports.isDisplayed());
+        Assert.assertTrue(datamanagement.isDisplayed());
+        Assert.assertTrue(configureMetadata.isDisplayed());
+        Assert.assertTrue(systemAdministration.isDisplayed());
+    }
     public void verifyTitle(){
         wait.until(ExpectedConditions.titleIs("Home"));
         Assert.assertTrue(driver.getTitle().equals("Home"));
@@ -47,6 +57,10 @@ public class HomePage extends BasePage{
         Assert.assertEquals("Pharmacy", selectedLocation.getText().trim());
         Assert.assertTrue(logoutBtn.isDisplayed());
     }
+    public void registerPatientTabClick(){
+        registerAPatient.click();
+    }
+
 
 
 

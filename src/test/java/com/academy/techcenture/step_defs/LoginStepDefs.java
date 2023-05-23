@@ -8,10 +8,9 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.cucumber.java.en_scouse.An;
 import org.openqa.selenium.WebDriver;
 
-public class LoginSteDefs {
+public class LoginStepDefs {
     private LogInPage logInPage;
     private HomePage homePage;
     private WebDriver driver = Driver.getDriver();
@@ -47,11 +46,16 @@ public class LoginSteDefs {
     public void user_clicks_on_the_log_in_button() {
         logInPage.loginBtnClick();
     }
-    @Then("user should be logged in successfully")
+    @And("user should be logged in successfully")
     public void user_should_be_logged_in_successfully() {
         homePage = new HomePage(driver);
         homePage.verifyTitle();
         homePage.verifyLoggedUsername();
         homePage.verifyTopOptions();
+    }
+    @Then("user should verify all of the items on home page")
+    public void user_should_verify_all_of_the_items_on_home_page(){
+        homePage.verifyFunctionalities();
+        homePage.registerPatientTabClick();
     }
 }
