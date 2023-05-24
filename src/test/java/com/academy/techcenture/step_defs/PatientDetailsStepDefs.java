@@ -1,25 +1,45 @@
 package com.academy.techcenture.step_defs;
 
+import com.academy.techcenture.config.ConfigReader;
+import com.academy.techcenture.driver.Driver;
+import com.academy.techcenture.pages.*;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.When;
+import org.openqa.selenium.WebDriver;
+
 public class PatientDetailsStepDefs {
-//    @Given("user is already on user detail page")
-//    public void user_is_already_on_user_detail_page() {
-//        // Write code here that turns the phrase above into concrete actions
-//        throw new io.cucumber.java.PendingException();
-//    }
-//    @When("user is on patient detail page")
-//    public void user_is_on_patient_detail_page() {
-//        // Write code here that turns the phrase above into concrete actions
-//        throw new io.cucumber.java.PendingException();
-//    }
-//    @When("user verifies top section")
-//    public void user_verifies_top_section() {
-//        // Write code here that turns the phrase above into concrete actions
-//        throw new io.cucumber.java.PendingException();
-//    }
-//    @When("user create a sticky note message")
-//    public void user_create_a_sticky_note_message() {
-//        // Write code here that turns the phrase above into concrete actions
-//        throw new io.cucumber.java.PendingException();
+
+        private LogInPage logInPage;
+        private HomePage homePage;
+        private RegistrationPage registrationPage;
+        private PatientDetailsPage patientDetailsPage;
+        private WebDriver driver = Driver.getDriver();
+        @Given("user is already logged in")
+        public void user_is_already_logged_in() throws InterruptedException {
+            logInPage = new LogInPage(driver);
+            //Thread.sleep(3000);
+            driver.get(ConfigReader.getProperty("url"));
+            Thread.sleep(3000);
+            logInPage.enterUserName("Admin");
+            logInPage.enterPassword("Admin123");
+            logInPage.selectPharmacy();
+            logInPage.loginBtnClick();
+        }
+
+   @When("user is on patient detail page")
+    public void user_is_on_patient_detail_page() {
+       patientDetailsPage = new PatientDetailsPage(driver);
+       patientDetailsPage.verifyTitle();
+   }
+    @When("user verifies top section")
+    public void user_verifies_top_section() {
+            patientDetailsPage.verifyPatientInfo();
+    }
+
+ //   @When("user create a sticky note message")
+ //   public void user_create_a_sticky_note_message() {
+ //    patientDetailsPage.enterNote();
 //    }
 //    @When("user verifies all of the visible components")
 //    public void user_verifies_all_of_the_visible_components() {
