@@ -25,7 +25,6 @@ public class PatientDetailsPage extends BasePage{
     @FindBy (className = "icon-ok icon-white")
     protected WebElement checkMark;
 
-
     public void verifyTitle (){
         wait.until(ExpectedConditions.titleIs("OpenMRS Electronic Medical Record"));
         Assert.assertTrue(driver.getTitle().equals("OpenMRS Electronic Medical Record"));

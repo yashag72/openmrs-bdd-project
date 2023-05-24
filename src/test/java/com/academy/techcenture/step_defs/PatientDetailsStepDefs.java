@@ -36,6 +36,7 @@ public class PatientDetailsStepDefs {
     public void user_verifies_top_section() {
             patientDetailsPage.verifyPatientInfo();
     }
+
  //   @When("user create a sticky note message")
  //   public void user_create_a_sticky_note_message() {
  //    patientDetailsPage.enterNote();

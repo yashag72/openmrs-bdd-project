@@ -11,7 +11,6 @@ Feature: OpenMRS Login Feature
   Background: Login Background Steps
     Given user is already logged in
 
-
     Scenario: Verify Patient Details
       When user is on patient detail page
       And user verifies top section
