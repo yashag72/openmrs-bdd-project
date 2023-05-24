@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class PatientDetailsPage extends BasePage{
     public PatientDetailsPage(WebDriver driver){
@@ -19,17 +20,32 @@ public class PatientDetailsPage extends BasePage{
     protected WebElement gender;
     @FindBy(xpath = "(//div[@class='gender-age col-auto']/span)[2]")
     protected WebElement age;
+    @FindBy (className = "icon-sticky-note")
+    protected WebElement stickyNote;
+    @FindBy (className = "icon-ok icon-white")
+    protected WebElement checkMark;
 
 
-public void verifyPatientInfo(){
+    public void verifyTitle (){
+        wait.until(ExpectedConditions.titleIs("OpenMRS Electronic Medical Record"));
+        Assert.assertTrue(driver.getTitle().equals("OpenMRS Electronic Medical Record"));
+    }
+
+public void verifyPatientInfo() {
     Assert.assertEquals("100HWJ", patientID.getText().trim());
     Assert.assertEquals("Kevin", givenName.getText().trim());
     Assert.assertEquals("Lee1", familyName.getText().trim());
     Assert.assertEquals("Male", gender.getText().trim());
     String age1 = new String(age.getText().trim());
-    Assert.assertEquals("43", age1.substring(0,2));
-    Assert.assertEquals("01.Jan.1980", age1.substring(13,24));
+    Assert.assertEquals("43", age1.substring(0, 2));
+    Assert.assertEquals("01.Jan.1980", age1.substring(13, 24));
 }
+
+    public void enterNote (){
+        stickyNote.click();
+        stickyNote.sendKeys("First visit");
+        checkMark.click();
+    }
 public void goToHomePage(){
     homePage.click();
 }

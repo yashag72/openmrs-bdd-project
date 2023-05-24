@@ -9,7 +9,7 @@
 Feature: OpenMRS Login Feature
 
   Background: Login Background Steps
-    Given user is already on user detail page
+    Given user is already logged in
 
 
     Scenario: Verify Patient Details
