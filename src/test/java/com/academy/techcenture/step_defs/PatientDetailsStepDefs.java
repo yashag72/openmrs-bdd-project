@@ -17,9 +17,8 @@ public class PatientDetailsStepDefs {
         @Given("user is already logged in")
         public void user_is_already_logged_in() throws InterruptedException {
             logInPage = new LogInPage(driver);
-            //Thread.sleep(3000);
             driver.get(ConfigReader.getProperty("url"));
-            Thread.sleep(3000);
+            Thread.sleep(2000);
             logInPage.enterUserName("Admin");
             logInPage.enterPassword("Admin123");
             logInPage.selectPharmacy();
