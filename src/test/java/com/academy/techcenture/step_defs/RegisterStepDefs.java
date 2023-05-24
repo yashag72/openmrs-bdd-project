@@ -2,7 +2,7 @@ package com.academy.techcenture.step_defs;
 
 public class RegisterStepDefs {
 //    @Given("user is already logged in")
-//    public void user_is_already_logged_in() {
+//    public void user_is_logged_in() {
 //        // Write code here that turns the phrase above into concrete actions
 //        throw new io.cucumber.java.PendingException();
 //    }

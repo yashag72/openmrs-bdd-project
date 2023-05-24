@@ -17,8 +17,8 @@ public class PatientSearchStepDefs {
     private FindPatientRecordPage findPatientRecordPage;
     private PatientDetailsPage patientDetalsPage;
     private WebDriver driver = Driver.getDriver();
-    @Given("user is already logged in")
-    public void user_is_already_logged_in() throws InterruptedException {
+    @Given("user is logged in")
+    public void user_is_logged_in() throws InterruptedException {
         logInPage = new LogInPage(driver);
         driver.get(ConfigReader.getProperty("url"));
         Thread.sleep(4000);

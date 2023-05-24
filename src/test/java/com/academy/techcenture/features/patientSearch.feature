@@ -7,7 +7,7 @@
 Feature: OpenMRS Login Feature
 
   Background: Login Background Steps
-    Given user is already logged in
+    Given user is logged in
 
 @PatientSearch
   Scenario: Search for Patient Record
