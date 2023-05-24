@@ -60,6 +60,9 @@ public class HomePage extends BasePage{
     public void registerPatientTabClick(){
         registerAPatient.click();
     }
+    public void findPatientRecordClick(){
+        findPatientRecord.click();
+    }
 
 
 
