@@ -24,6 +24,8 @@ public class PatientDetailsPage extends BasePage{
     protected WebElement stickyNote;
     @FindBy (className = "icon-ok icon-white")
     protected WebElement checkMark;
+    @FindBy(xpath = "//ul[@id='breadcrumbs']/li/a")
+    protected WebElement homePage;
 
     public void verifyTitle (){
         wait.until(ExpectedConditions.titleIs("OpenMRS Electronic Medical Record"));
@@ -45,7 +47,11 @@ public void verifyPatientInfo() {
         stickyNote.sendKeys("First visit");
         checkMark.click();
     }
-public void goToHomePage(){
-    homePage.click();
+    public void goToHomePage() throws InterruptedException {
+        homePage.click();
+
+    }
+
+
 }
-}
+

@@ -23,16 +23,13 @@ public class BasePage {
     //li[@class='nav-item logout']/a
     @FindBy(xpath = "//li[@class='nav-item logout']/a")
     protected WebElement logoutBtn;
-    @FindBy(xpath = "//ul[@id='breadcrumbs']/li/a")
-    protected WebElement homePage;
+
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(this.driver, this);
         this.wait = new WebDriverWait(this.driver, Duration.ofSeconds(5));
     }
-
-
 
 
 

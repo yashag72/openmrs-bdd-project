@@ -51,7 +51,8 @@ public class PatientSearchStepDefs {
 
     }
     @Then("user goes back to home page")
-    public void user_goes_back_to_home_page() {
+    public void user_goes_back_to_home_page() throws InterruptedException {
+        patientDetalsPage = new PatientDetailsPage(driver);
         patientDetalsPage.goToHomePage();
     }
 }
