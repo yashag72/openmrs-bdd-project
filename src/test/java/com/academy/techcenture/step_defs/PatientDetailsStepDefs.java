@@ -3,7 +3,6 @@ package com.academy.techcenture.step_defs;
 import com.academy.techcenture.config.ConfigReader;
 import com.academy.techcenture.driver.Driver;
 import com.academy.techcenture.pages.*;
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
@@ -27,8 +26,8 @@ public class PatientDetailsStepDefs {
             logInPage.loginBtnClick();
         }
 
-   @When("user is on patient detail page")
-    public void user_is_on_patient_detail_page() {
+   @When("user is on patient detail page1")
+    public void user_is_on_patient_detail_page1() {
        patientDetailsPage = new PatientDetailsPage(driver);
        patientDetailsPage.verifyTitle();
    }
