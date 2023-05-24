@@ -13,29 +13,40 @@ public class PatientDetailsStepDefs {
         private HomePage homePage;
         private RegistrationPage registrationPage;
         private PatientDetailsPage patientDetailsPage;
+        private FindPatientRecordPage findPatientRecordPage;
         private WebDriver driver = Driver.getDriver();
-        @Given("user is already logged in")
-        public void user_is_already_logged_in() throws InterruptedException {
+    @Given("user loggen on")
+    public void userLoggenOn() throws InterruptedException {
             logInPage = new LogInPage(driver);
+            //Thread.sleep(3000);
             driver.get(ConfigReader.getProperty("url"));
-            Thread.sleep(2000);
+            Thread.sleep(3000);
             logInPage.enterUserName("Admin");
             logInPage.enterPassword("Admin123");
             logInPage.selectPharmacy();
             logInPage.loginBtnClick();
         }
 
-   @When("user is on patient detail page1")
-    public void user_is_on_patient_detail_page1() {
-       patientDetailsPage = new PatientDetailsPage(driver);
-       patientDetailsPage.verifyTitle();
+   @When("user is on patient detail page")
+    public void user_is_on_patient_detail_page() {
+       homePage = new HomePage(driver);
+       homePage.findPatientRecordClick();
+       findPatientRecordPage = new FindPatientRecordPage(driver);
+       findPatientRecordPage.searchPatientID();
+       //patientDetailsPage.verifyTitle();
+
    }
     @When("user verifies top section")
     public void user_verifies_top_section() {
-            patientDetailsPage.verifyPatientInfo();
+        patientDetailsPage = new PatientDetailsPage(driver);
+        patientDetailsPage.verifyPatientInfo();
+
     }
 
- //   @When("user create a sticky note message")
+
+    }
+
+    //   @When("user create a sticky note message")
  //   public void user_create_a_sticky_note_message() {
  //    patientDetailsPage.enterNote();
 //    }
@@ -49,4 +60,4 @@ public class PatientDetailsStepDefs {
 //        // Write code here that turns the phrase above into concrete actions
 //        throw new io.cucumber.java.PendingException();
 //    }
-}
+

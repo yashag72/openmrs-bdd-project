@@ -33,7 +33,7 @@ public class PatientDetailsPage extends BasePage{
     }
 
 public void verifyPatientInfo() {
-    Assert.assertEquals("100HWJ", patientID.getText().trim());
+    Assert.assertEquals("100J51", patientID.getText().trim());
     Assert.assertEquals("Kevin", givenName.getText().trim());
     Assert.assertEquals("Lee1", familyName.getText().trim());
     Assert.assertEquals("Male", gender.getText().trim());

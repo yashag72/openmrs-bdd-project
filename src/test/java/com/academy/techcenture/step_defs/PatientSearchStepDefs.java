@@ -15,7 +15,7 @@ public class PatientSearchStepDefs {
     private LogInPage logInPage;
     private HomePage homePage;
     private FindPatientRecordPage findPatientRecordPage;
-    private PatientDetailsPage patientDetalsPage;
+    private PatientDetailsPage patientDetailsPage;
     private WebDriver driver = Driver.getDriver();
     @Given("user is logged in")
     public void user_is_logged_in() throws InterruptedException {
@@ -45,8 +45,8 @@ public class PatientSearchStepDefs {
     }
     @When("user verifies found information")
     public void user_verifies_found_information() {
-    patientDetalsPage = new PatientDetailsPage(driver);
-    patientDetalsPage.verifyPatientInfo();
+    patientDetailsPage = new PatientDetailsPage(driver);
+    patientDetailsPage.verifyPatientInfo();
 
 
     }

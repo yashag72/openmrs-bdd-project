@@ -9,8 +9,8 @@
 Feature: OpenMRS Login Feature
 
   Background: Login Background Steps
-    Given user is already logged in1
-
+    Given user loggen on
+    @RunnerUserDetails
     Scenario: Verify Patient Details
       When user is on patient detail page
       And user verifies top section
