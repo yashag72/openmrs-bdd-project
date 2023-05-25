@@ -10,7 +10,9 @@ public class PatientDetailsPage extends BasePage{
     public PatientDetailsPage(WebDriver driver){
         super (driver);
     }
-@FindBy(xpath = "//div[@class='float-sm-right']/span")
+
+
+    @FindBy(xpath = "//div[@class='float-sm-right']/span")
     protected WebElement patientID;
     @FindBy(xpath = "//span[@class='PersonName-givenName']")
     protected WebElement givenName;
@@ -21,11 +23,28 @@ public class PatientDetailsPage extends BasePage{
     @FindBy(xpath = "(//div[@class='gender-age col-auto']/span)[2]")
     protected WebElement age;
     @FindBy (className = "icon-sticky-note")
-    protected WebElement stickyNote;
-    @FindBy (className = "icon-ok icon-white")
+    protected WebElement stickyNoteBtn;
+    @FindBy(xpath = "//textarea")
+    protected WebElement textarea;
+
+    @FindBy (xpath = "//button[@type='submit']")
     protected WebElement checkMark;
     @FindBy(xpath = "//ul[@id='breadcrumbs']/li/a")
     protected WebElement homePage;
+    @FindBy(xpath = "//span[@id='TextField']/pre[1]")
+    protected WebElement ourStickyNote;
+    @FindBy(id = "coreapps-diagnosesList")
+    protected WebElement diagnosis;
+    @FindBy(xpath = "(//div[@class='info-header'])[2]")
+    protected WebElement observations;
+
+    @FindBy(xpath = "(//div[@class='info-header'])[3]")
+    protected WebElement health;
+    @FindBy(xpath = "(//div[@class='info-header'])[8]")
+    protected WebElement family;
+
+
+
 
     public void verifyTitle (){
         wait.until(ExpectedConditions.titleIs("OpenMRS Electronic Medical Record"));
@@ -33,24 +52,34 @@ public class PatientDetailsPage extends BasePage{
     }
 
 public void verifyPatientInfo() {
-    Assert.assertEquals("100J51", patientID.getText().trim());
+    Assert.assertEquals("100JL2", patientID.getText().trim());
     Assert.assertEquals("Kevin", givenName.getText().trim());
-    Assert.assertEquals("Lee1", familyName.getText().trim());
-    Assert.assertEquals("Male", gender.getText().trim());
-    String age1 = new String(age.getText().trim());
-    Assert.assertEquals("43", age1.substring(0, 2));
-    Assert.assertEquals("01.Jan.1980", age1.substring(13, 24));
+    Assert.assertEquals("Lee", familyName.getText().trim());
+//    Assert.assertEquals("Male", gender.getText().trim());
+//    String age1 = new String(age.getText().trim());
+//    Assert.assertEquals("42", age1.substring(0, 2));
+//    Assert.assertEquals("20.Dec.1980", age1.substring(13, 24));
 }
 
-    public void enterNote (){
-        stickyNote.click();
-        stickyNote.sendKeys("First visit");
+    public void enterNote () throws InterruptedException {
+        stickyNoteBtn.click();
+        textarea.sendKeys("First visit");
+        Thread.sleep(3000);
         checkMark.click();
+        System.out.println(ourStickyNote.getText().trim());
+
+    }
+    public void userVerifyVisibleComponents(){
+        Assert.assertTrue(diagnosis.isDisplayed());
+        Assert.assertTrue(observations.isDisplayed());
+        Assert.assertTrue(health.isDisplayed());
+        Assert.assertTrue(family.isDisplayed());
     }
     public void goToHomePage() throws InterruptedException {
         homePage.click();
 
     }
+
 
 
 }

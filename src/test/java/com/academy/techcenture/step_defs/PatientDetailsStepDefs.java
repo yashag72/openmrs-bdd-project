@@ -4,6 +4,7 @@ import com.academy.techcenture.config.ConfigReader;
 import com.academy.techcenture.driver.Driver;
 import com.academy.techcenture.pages.*;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 
@@ -33,31 +34,33 @@ public class PatientDetailsStepDefs {
        homePage.findPatientRecordClick();
        findPatientRecordPage = new FindPatientRecordPage(driver);
        findPatientRecordPage.searchPatientID();
-       //patientDetailsPage.verifyTitle();
-
-   }
+    }
     @When("user verifies top section")
     public void user_verifies_top_section() {
         patientDetailsPage = new PatientDetailsPage(driver);
+        patientDetailsPage.verifyTitle();
         patientDetailsPage.verifyPatientInfo();
 
     }
 
 
+
+
+       @When("user create a sticky note message")
+        public void user_create_a_sticky_note_message() throws InterruptedException {
+         patientDetailsPage = new PatientDetailsPage(driver);
+         patientDetailsPage.enterNote();
+
+        }
+
+
+    @When("user verifies all of the visible components")
+    public void user_verifies_all_of_the_visible_components() {
+       patientDetailsPage.userVerifyVisibleComponents();
     }
 
-    //   @When("user create a sticky note message")
- //   public void user_create_a_sticky_note_message() {
- //    patientDetailsPage.enterNote();
-//    }
-//    @When("user verifies all of the visible components")
-//    public void user_verifies_all_of_the_visible_components() {
-//        // Write code here that turns the phrase above into concrete actions
-//        throw new io.cucumber.java.PendingException();
-//    }
-//    @Then("user goes back to home page")
-//    public void user_goes_back_to_home_page() {
-//        // Write code here that turns the phrase above into concrete actions
-//        throw new io.cucumber.java.PendingException();
-//    }
-
+    @Then("back to home page")
+    public void back_to_home_page() throws InterruptedException {
+        patientDetailsPage.goToHomePage();
+    }
+}

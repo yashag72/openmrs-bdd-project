@@ -16,4 +16,4 @@ Feature: OpenMRS Login Feature
       And user verifies top section
       And user create a sticky note message
       And user verifies all of the visible components
-      Then user goes back to home page
+      Then back to home page

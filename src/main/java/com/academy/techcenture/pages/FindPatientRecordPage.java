@@ -18,7 +18,7 @@ public class FindPatientRecordPage extends BasePage{
 
 
     public void searchPatientID(){
-        patientSearchBox.sendKeys("100J51");
+        patientSearchBox.sendKeys("100JL2");
         patientSearchBox.sendKeys(Keys.RETURN);
 
     }
