@@ -4,7 +4,7 @@ Feature: OpenMRS Login Feature
     Given user is on login page
 
 
-  @regression @smoke
+  @regression
   Scenario: Successful login
     When user familiarise with all of the items on the login webpage
     And user enters a valid username "admin"

@@ -23,12 +23,20 @@ public class BasePage {
     //li[@class='nav-item logout']/a
     @FindBy(xpath = "//li[@class='nav-item logout']/a")
     protected WebElement logoutBtn;
+    @FindBy(id = "next-button")
+    protected WebElement nextBtn;
 
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(this.driver, this);
         this.wait = new WebDriverWait(this.driver, Duration.ofSeconds(5));
+    }
+    public void clickNextBtn(){
+        nextBtn.click();
+    }
+    public void logou(){
+        logoutBtn.click();
     }
 
 
