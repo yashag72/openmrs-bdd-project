@@ -35,7 +35,7 @@ public class BasePage {
     public void clickNextBtn(){
         nextBtn.click();
     }
-    public void logou(){
+    public void logout(){
         logoutBtn.click();
     }
 

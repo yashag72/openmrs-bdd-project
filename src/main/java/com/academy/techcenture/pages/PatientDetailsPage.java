@@ -1,5 +1,6 @@
 package com.academy.techcenture.pages;
 
+import com.academy.techcenture.config.ConfigReader;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -52,18 +53,18 @@ public class PatientDetailsPage extends BasePage{
     }
 
 public void verifyPatientInfo() {
-    Assert.assertEquals("100JL2", patientID.getText().trim());
-    Assert.assertEquals("Kevin", givenName.getText().trim());
-    Assert.assertEquals("Lee", familyName.getText().trim());
-//    Assert.assertEquals("Male", gender.getText().trim());
-//    String age1 = new String(age.getText().trim());
-//    Assert.assertEquals("42", age1.substring(0, 2));
-//    Assert.assertEquals("20.Dec.1980", age1.substring(13, 24));
+    Assert.assertEquals(ConfigReader.getProperty("PID"), patientID.getText().trim());
+    Assert.assertEquals(ConfigReader.getProperty("fName"), givenName.getText().trim());
+    Assert.assertEquals(ConfigReader.getProperty("lName"), familyName.getText().trim());
+    Assert.assertEquals(ConfigReader.getProperty("gender"), gender.getText().trim());
+    String age1 = new String(age.getText().trim());
+    //Assert.assertEquals(, age1.substring(0, 2));
+    //Assert.assertEquals("20.Dec.1980", age1.substring(13, 24));
 }
 
     public void enterNote () throws InterruptedException {
         stickyNoteBtn.click();
-        textarea.sendKeys("First visit");
+        textarea.sendKeys("First Visit");
         Thread.sleep(3000);
         checkMark.click();
         System.out.println(ourStickyNote.getText().trim());

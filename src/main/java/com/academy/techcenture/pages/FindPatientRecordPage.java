@@ -1,5 +1,6 @@
 package com.academy.techcenture.pages;
 
+import com.academy.techcenture.config.ConfigReader;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -12,13 +13,8 @@ public class FindPatientRecordPage extends BasePage{
     }
     @FindBy(id = "patient-search")
     protected WebElement patientSearchBox;
-
-
-
-
-
     public void searchPatientID(){
-        patientSearchBox.sendKeys("100JL2");
+        patientSearchBox.sendKeys(ConfigReader.getProperty("PID"));
         patientSearchBox.sendKeys(Keys.RETURN);
 
     }

@@ -86,7 +86,5 @@ registrationPage.clickNextBtn();
     public void user_clicks_confirm_button() {
       registrationPage.clickConfirmBtn();
       registrationPage.savePatientID();
-      registrationPage.logou();
-
     }
 }

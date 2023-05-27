@@ -55,9 +55,11 @@ public class RegistrationPage extends BasePage{
 
 public void enterFirstName(String firstName) {
     firstNameInput.sendKeys(firstName);
+    ConfigReader.setProperty("fName",firstName );
 }
     public void enterLastName(String lastName){
         lastNameInput.sendKeys(lastName);
+        ConfigReader.setProperty("lName", lastName);
     }
     public void selectTheGender(String gender) {
         genderField.click();
@@ -65,9 +67,11 @@ public void enterFirstName(String firstName) {
         Select select = new Select(genderSelect);
         List<WebElement> text = driver.findElements(By.xpath("//select[@name='gender']/option"));
         select.selectByVisibleText(gender);
+        ConfigReader.setProperty("gender", gender);
 }
     public void fillOutBirthday_Day(String day){
     birthDay.sendKeys(day);
+    ConfigReader.setProperty("bDay", day);
     }
     public void selectMonth(String month){
     birthMonthDrop.click();
@@ -75,9 +79,11 @@ public void enterFirstName(String firstName) {
     Select select = new Select(monthSelect);
     List<WebElement> text = driver.findElements(By.xpath("//select[@id='birthdateMonth-field']/option"));
     select.selectByVisibleText(month);
+    ConfigReader.setProperty("bMonth", month);
     }
     public void fillOutYear(String year){
     birthYear.sendKeys(year);
+    ConfigReader.setProperty("bYear", year);
     }
     public void fillOutAddress(String street_address, String city, String state, String country, String postal_code){
     st_address.sendKeys(street_address);
