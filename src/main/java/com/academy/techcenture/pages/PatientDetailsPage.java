@@ -65,7 +65,7 @@ public void verifyPatientInfo() {
     public void enterNote () throws InterruptedException {
         stickyNoteBtn.click();
         textarea.sendKeys("First Visit");
-        Thread.sleep(3000);
+        Thread.sleep(1000);
         checkMark.click();
         System.out.println(ourStickyNote.getText().trim());
 
