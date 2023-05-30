@@ -9,6 +9,16 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
 import java.time.Duration;
+import java.util.HashMap;
+import java.util.Map;
+
+
+//Map<String, Object> prefs = new HashMap<String, Object>();
+//        prefs.put("autofill.profile_enabled", false);
+//        prefs.put("profile.password_manager_enabled", false);
+//        prefs.put("profile.default_content_setting_values.notifications", 2);
+//        options.setExperimentalOption("prefs", prefs);
+
 
 public class Driver {
     private static WebDriver driver;
@@ -26,6 +36,11 @@ public class Driver {
                     ChromeOptions options = new ChromeOptions();
                     options.addArguments("--remote-allow-origins=*");
                     options.setHeadless(headless);
+                    Map<String, Object> prefs = new HashMap<String, Object>();
+                    prefs.put("autofill.profile_enabled", false);
+                    prefs.put("profile.password_manager_enabled", false);
+                    prefs.put("profile.default_content_setting_values.notifications", 2);
+                    options.setExperimentalOption("prefs", prefs);
                     driver = new ChromeDriver(options);
                     break;
                 case "firefox":
